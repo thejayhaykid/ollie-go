@@ -1,0 +1,5 @@
+localhost:80, 127.0.0.1:80 {
+  reverse_proxy /api* localhost:8080
+  reverse_proxy /api/* localhost:8080
+  reverse_proxy /* localhost:4321
+}

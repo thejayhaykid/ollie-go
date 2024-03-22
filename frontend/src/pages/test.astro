@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+let text: string = '';
+
+
+---
+
+<Layout title="Test">
+    <h1>API</h1>
+    <p id="text"></p>
+</Layout>
+
+<script>
+const element = document.getElementById('text');
+console.log(element);
+if (element !== null) {
+  fetch('/api').then((response) => {
+  return response.json();
+}).then((data) => {
+  element.innerText = data.message;
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});};
+</script>

@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  caddy:
+    image: caddy:latest
+    volumes:
+      - ./caddy_config:/etc/caddy
+      - ./frontend/public:/public
+    ports:
+      - "80:80"
+    command: caddy run --config /etc/caddy/Caddyfile.dev
