@@ -1,10 +1,12 @@
 FROM node:lts-alpine AS runtime
 WORKDIR /app
 
+RUN corepack enable
+
 COPY . .
 
-RUN npm install
-RUN npm run build
+RUN yarn install
+RUN yarn run build
 
 ENV HOST=0.0.0.0
 ENV PORT=4321
